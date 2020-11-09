@@ -5,8 +5,14 @@
   /* DATA GET */
 
     /* API call here to grab most popular repos */
+    /* 
+      curl -H 'Accept: application/vnd.github.preview.text-match+json' https://api.github.com/search/repositories?q=language:php&sort=stars&per_page=3
+    */
+
 
     /* Sanatize Data & write to DB */
+      /* Parse relevant JSON Fields  */
+      /* Loop and write each result to DB */
 
   /* DATA DISPLAY */
 
