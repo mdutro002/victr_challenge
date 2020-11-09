@@ -5,10 +5,14 @@
   /* DATA GET */
 
     /* API call here to grab most popular repos */
-    /* 
+
+
+    /*
+      https://stackoverflow.com/questions/17230246/php-curl-get-request-and-requests-body/40715494#40715494 
+      https://stackoverflow.com/questions/17230246/php-curl-get-request-and-requests-body/17230281#17230281
       curl -H 'Accept: application/vnd.github.preview.text-match+json' https://api.github.com/search/repositories?q=language:php&sort=stars&per_page=3
     */
-
+    $json_data = json_decode(file_get_contents('https://api.github.com/search/repositories?q=language:php&sort=stars&per_page=3'));
 
     /* Sanatize Data & write to DB */
       /* Parse relevant JSON Fields  */
@@ -30,10 +34,12 @@
 </head>
 <body>
   <h1>Github Allstars - PHP edition</h1>
+  <button>Get Data</button>
 
 <!-- DATA WILL GO DOWN HERE - conditional formatting, etc -->
   <?php 
     echo "hewwwwooooooo";
+    echo $json_data;
   ?>
   
 </body>
