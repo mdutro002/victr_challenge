@@ -1,6 +1,7 @@
 <?php 
 
   /* Connect to DB? */
+  /* https://stackoverflow.com/questions/16550942/connect-to-mysql-in-mamp */
 
   /* DATA GET */
 
@@ -12,7 +13,12 @@
       https://stackoverflow.com/questions/17230246/php-curl-get-request-and-requests-body/17230281#17230281
       curl -H 'Accept: application/vnd.github.preview.text-match+json' https://api.github.com/search/repositories?q=language:php&sort=stars&per_page=3
     */
-    $json_data = json_decode(file_get_contents('https://api.github.com/search/repositories?q=language:php&sort=stars&per_page=3'));
+
+    /*   
+    this didn't quite work - might save and tweak for later use
+      $json_data = json_decode(file_get_contents('https://api.github.com/search/repositories?q=language:php&sort=stars&per_page=3'));
+        var_dump($json_data);
+    */
 
     /* Sanatize Data & write to DB */
       /* Parse relevant JSON Fields  */
@@ -38,8 +44,6 @@
 
 <!-- DATA WILL GO DOWN HERE - conditional formatting, etc -->
   <?php 
-    echo "hewwwwooooooo";
-    echo $json_data;
   ?>
   
 </body>
