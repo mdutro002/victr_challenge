@@ -1,19 +1,16 @@
 <?php 
 
   /* Connect to DB? */
-  /* https://stackoverflow.com/questions/16550942/connect-to-mysql-in-mamp */
-  $servername = "localhost";
-  $username = "phpfetcher";
-  $password = "passcode";
+  $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-  // Create connection
-  $conn = new mysqli($servername, $username, $password);
+  $server = $url["host"];
+  $username = $url["user"];
+  $password = $url["pass"];
+  $db = substr($url["path"], 1);
 
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
-  echo "Connected successfully";
+  $conn = new mysqli($server, $username, $password, $db);
+
+  $testingTesting = $conn->query("SELECT * FROM MySQL.user");
 
   /* DATA GET */
     /* API call here to grab most popular repos */
