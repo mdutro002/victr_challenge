@@ -11,6 +11,7 @@
   $conn = new mysqli($server, $username, $password, $db);
 
   $testingTesting = $conn->query("SELECT * FROM MySQL.user");
+  echo $testingTesting;
 
   /* DATA GET */
     /* API call here to grab most popular repos */
