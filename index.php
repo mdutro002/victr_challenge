@@ -82,7 +82,7 @@
   <?php 
     $results = $conn->query("SELECT * FROM php_repos;");
     while ($row = $results->fetch_assoc()){
-      echo $row['repo_id'] . " " . $row['name'] . " " . $row['created_date'] . " " . $row['last_push'] . " " . $row['description'] . " " . $row['stars'] . "\r";
+      echo $row['repo_id'] . " " . $row['name'] . " " . $row['created_date'] . " " . $row['last_push'] . " " . $row['description'] . " " . $row['stars'] . PHP_EOL;
     }
   ?>
 </body>
