@@ -41,7 +41,7 @@
       $rname = $repo[name];
       $rawCreateDate = date_parse($repo[created_at]);
       $rawPushDate = $repo[pushed_at];
-      $rdate = $rawCreateDate[year] . "-" . $rawCreateDate[month] . "-" . $rawCreateDate[day]; 
+      $rdate = $rawCreateDate[year] . "-" . $rawCreateDate[month] . "-" . $rawCreateDate[day] . ", " . $rawCreateDate[hour] . ":" . $rawCreateDate[minute] ; 
       //$rpush = ;
       var_dump($rdate);
      // var_dump(date_parse($rpush));
