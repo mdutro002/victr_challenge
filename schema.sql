@@ -1,7 +1,3 @@
-CREATE DATABASE vumc_db;
-
-use vumc_db;
-
 CREATE TABLE php_repos(	
   id integer PRIMARY KEY NOT NULL AUTO_INCREMENT, 
   repo_id varchar(256),

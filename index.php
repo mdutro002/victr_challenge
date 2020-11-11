@@ -1,15 +1,17 @@
 <?php 
 
   /* Connect to DB */
- /*  
   $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
           $server = $url["host"];
           $username = $url["user"];
           $password = $url["pass"];
           $db = substr($url["path"], 1);
 
-          $conn = new mysqli($server, $username, $password, $db);
- */
+  $conn = new mysqli($server, $username, $password, $db);
+
+  if ($conn->connect_errno){
+    echo "Failed to connect to MySQL: (" . $conn->connect_errno . ") " . $conn->connect_error;
+  }
 
   /* DATA GET */
   /* API call here to grab most popular repos */
@@ -43,20 +45,17 @@
       $rdesc = $repo[description];
       $rstars = $repo[stargazers_count];
       array_push($repoRow, $rid, $rname, $rdate, $rpush, $rdesc, $rstars);
+      //Here would be where I would turn each piece of data into a param, and write it to the database. 
+      //SQL would look akin to the following:
+      //INSERT INTO php_repos (gitID, name, created, pushed, description, stars)
+       //VALUES ($1, $2, $3, $4, $5, $6);
       array_push($cleanData, $repoRow);
     }
 
-    var_dump($cleanData);
-
-
-
-    /* Sanatize Data & write to DB */
-      /* Parse relevant JSON Fields  */
-      /* Loop and write each result to DB */
-
   /* DATA DISPLAY */
-
-  /* Database data pull here */
+   function pullData(){
+     /* SELECT * FROM php_repos */
+   }
 
 ?>
 
@@ -71,11 +70,12 @@
 </head>
 <body>
   <h1>Github Allstars - PHP edition</h1>
-  <button>Get Data</button>
 
 <!-- DATA WILL GO DOWN HERE - conditional formatting, etc -->
   <?php 
+   foreach($cleanData as $cleanRepo){
+
+   }
   ?>
-  
 </body>
 </html>

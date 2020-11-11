@@ -4,6 +4,11 @@ This project showcases a limited set of results of the most starred PHP based re
 Live link here: https://phpallstars.herokuapp.com
 
 ## Technology
-While initially tested with MAMP, the deployed version uses Heroku's MySQL addon ClearDB as it's backend.
 
+  ### Languages
+    PHP, MySQL, Github API
+  ### Architecture
+    Heroku, CloudDB add-on
+  ### 3rd Party Tools
+    Github API, jQuery
 
