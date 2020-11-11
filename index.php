@@ -45,6 +45,10 @@
       $rpush = $rawPushDate[year] . "-" . $rawPushDate[month] . "-" . $rawPushDate[day] . ", " . $rawPushDate[hour] . ":" . $rawPushDate[minute] ;
       $rdesc = $repo[description];
       $rstars = $repo[stargazers_count];
+
+      var_dump($rdate);
+      var_dump($rpush);
+      var_dump($rdesc);
       
       $insertTemplate = 
       ("INSERT INTO php_repos(repo_id,name,created_date,last_push,description,stars)VALUES(%s, %s, %s, %s, %s, %d);");
