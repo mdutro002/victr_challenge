@@ -88,7 +88,7 @@
   <?php 
     $results = $conn->query("SELECT * FROM php_repos;");
     while ($row = $results->fetch_assoc()){
-      echo $row['repo_id'] . " " . $row['name'] . " " . $row['created_date'] . " \r \n"   ;
+      echo $row['repo_id'] . " " . $row['name'] . " " . $row['created_date'] . "\r\n"   ;
     }
   ?>
 </body>
