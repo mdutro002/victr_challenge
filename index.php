@@ -98,8 +98,8 @@
 
 <!-- DATA WILL GO DOWN HERE - conditional formatting, etc -->
   <?php 
-    $dataSet = pullData();
-    echo $dataSet;
+    //$dataSet = pullData();
+    //echo $dataSet;
   ?>
 </body>
 </html>
