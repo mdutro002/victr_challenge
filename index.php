@@ -63,6 +63,7 @@
       
       //sanatize json output and write to table
       $insertQuery = sprintf($insertTemplate, $rid, $rname, $rdate, $rpush, $rdesc, $rstars);
+      $insertQuery = mysqli_real_escape_string($insertQuery);
       $conn->query($insertQuery);
     
     }
@@ -70,7 +71,7 @@
   /* DATA DISPLAY */
    function pullData(){
     $freshPull = $conn->query("SELECT * FROM php_repos");
-    echo $freshPull;
+    return $freshPull;
    }
 
 
@@ -90,7 +91,6 @@
 
 <!-- DATA WILL GO DOWN HERE - conditional formatting, etc -->
   <?php 
-
   ?>
 </body>
 </html>
