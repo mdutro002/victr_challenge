@@ -20,17 +20,35 @@
       curl_setopt($ch,CURLOPT_HEADER, true );
       curl_setopt($ch,CURLOPT_USERAGENT, "mdutro002");
       $output=curl_exec($ch);
+      //parse out json
+      $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+      $header = substr($output, false, $header_size);
+      $body = substr($output, $header_size);
       curl_close($ch);
-      return $output;
+      return json_decode($body, true);
     }
 
-    echo getData("https://api.github.com/search/repositories?q=language:php&sort=stars&per_page=3");
-    //This URL filters by language, sorts by stars, and limits 3 results - variables can be shifted
-    /*   
-    this didn't quite work - might save and tweak for later use
-      $json_data = json_decode(file_get_contents('https://api.github.com/search/repositories?q=language:php&sort=stars&per_page=3'));
-        var_dump($json_data);
-    */
+    $rawData = getData("https://api.github.com/search/repositories?q=language:php&sort=stars&per_page=3");
+    //This URL filters by language, sorts by stars, and limits 3 results - Todo: modify to accept wildcard params?
+
+    $repos = $rawData[items];
+    $cleanData = [];
+
+    foreach($repos as $repo){
+      $repoRow = [];
+      $rid = $repo[id];
+      $rname = $repo[name];
+      $rdate = $repo[created_at];
+      $rpush = $repo[pushed_at];
+      $rdesc = $repo[description];
+      $rstars = $repo[stargazers_count];
+      array_push($repoRow, $rid, $rname, $rdate, $rpush, $rdesc, $rstars);
+      array_push($cleanData, $repoRow);
+    }
+
+    var_dump($cleanData);
+
+
 
     /* Sanatize Data & write to DB */
       /* Parse relevant JSON Fields  */
