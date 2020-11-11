@@ -58,7 +58,6 @@
     echo $freshPull;
    }
 
-   pullData();
 
 ?>
 
