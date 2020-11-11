@@ -39,8 +39,12 @@
     foreach($repos as $repo){
       $rid = $repo[id];
       $rname = $repo[name];
-      $rdate = $repo[created_at];
+
+      $rdate = $repo[created_at]; 
       $rpush = $repo[pushed_at];
+      var_dump(date_parse($rdate));
+      var_dump(date_parse($rpush));
+
       $rdesc = $repo[description];
       $rstars = $repo[stargazers_count];
       
@@ -58,11 +62,11 @@
         mysqli_real_escape_string($conn, $rstars)
       );
       
-      $conn->query($insertQuery);
+      // $conn->query($insertQuery);
 
-      if (!mysqli_query($conn,$insertQuery)){
-        echo ("Error description: " . mysqli_error($conn));
-      }
+      // if (!mysqli_query($conn,$insertQuery)){
+      //   echo ("Error description: " . mysqli_error($conn));
+      // }
     
     }
 
