@@ -1,6 +1,4 @@
 <?php 
-ini_set('display_errors', 1);
-
   /* Connect to DB */
   $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
           $server = $url["host"];
@@ -91,7 +89,7 @@ ini_set('display_errors', 1);
   <?php 
     $results = $conn->query("SELECT * FROM php_repos;");
     while ($row = $results->fetch_assoc()){
-      echo $row['name'] . "/n";
+      echo $row['name'] . "\n";
     }
   ?>
 </body>
