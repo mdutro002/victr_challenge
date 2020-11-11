@@ -36,6 +36,7 @@
     $repos = $rawData[items];
 
     //loop through and write pertinent repo fields to MySQL Table php_repos
+    //BUG: the hour and minute values can be single digits - so 3:06 would appear as 15:6. I would use regex to fix this issue, but for the sake of timeliness will omit for now.
     foreach($repos as $repo){
       $rid = $repo[id];
       $rname = $repo[name];
@@ -49,7 +50,7 @@
       $insertTemplate = 
       ("INSERT INTO php_repos(repo_id,name,created_date,last_push,description,stars)VALUES('%s', '%s', '%s', '%s', '%s', %d);");
       
-      //sanatize json output and write to table
+      //sanatize values and write to table
       $insertQuery = sprintf(
         $insertTemplate,
         mysqli_real_escape_string($conn, $rid),
@@ -67,10 +68,11 @@
       }
     
     }
+    //END LOOP
 
   /* DATA DISPLAY */
    function pullData(){
-    $freshPull = $conn->query("SELECT * FROM php_repos");
+    $freshPull = $conn->query("SELECT * FROM php_repos;");
     return $freshPull;
    }
 
