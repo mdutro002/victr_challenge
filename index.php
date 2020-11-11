@@ -73,7 +73,11 @@
   /* DATA DISPLAY */
    function pullData(){
     $freshPull = $conn->query("SELECT * FROM php_repos;");
-    return $freshPull;
+    if (!mysqli_query($conn,$freshPull)){
+        echo ("Error description: " . mysqli_error($conn));
+    }else {
+      return $freshPull;
+    }
    }
 
 
