@@ -34,6 +34,9 @@
 
     $repos = $rawData[items];
 
+    var_dump($repos);
+    die;
+
     //loop through and write pertinent repo fields to MySQL Table php_repos
     foreach($repos as $repo){
       $rid = $repo[id];
