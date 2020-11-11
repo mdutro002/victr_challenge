@@ -1,5 +1,4 @@
 <?php 
-error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
   /* Connect to DB */
@@ -92,7 +91,7 @@ ini_set('display_errors', 1);
   <?php 
     $results = $conn->query("SELECT * FROM php_repos;");
     while ($row = $results->fetch_assoc()){
-      echo $row['name'];
+      echo $row['name'] . "/n";
     }
   ?>
 </body>
