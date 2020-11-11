@@ -73,6 +73,10 @@
       );
       
       $conn->query($insertQuery);
+
+      if (!mysqli_query($conn,$insertQuery)){
+        echo ("Error description: " . mysqli_error($conn));
+      }
     
     }
 
