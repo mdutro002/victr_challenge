@@ -70,15 +70,11 @@
     }
     //END LOOP
 
-  /* PULL FROM DATABASE FOR DISPLAY */
-  //  function pullData(){
-  //   $freshPull = $conn->query("SELECT * FROM php_repos");
-  //   if (!mysqli_query($conn,$freshPull)){
-  //     echo("Error description: " . mysqli_error($conn));
-  //   }else {
-  //     return $freshPull;
-  //   }
-  //  }
+  function pullData(){
+    $sql = "SELECT * FROM php_repos";
+    $results = $conn->query($sql);
+    return $results;
+  }
 
 
 ?>
@@ -98,8 +94,7 @@
 
 <!-- DATA WILL GO DOWN HERE - conditional formatting, etc -->
   <?php 
-    //$dataSet = pullData();
-    //echo $dataSet;
+    echo pullData();
   ?>
 </body>
 </html>
