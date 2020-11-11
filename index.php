@@ -74,7 +74,7 @@
    function pullData(){
     $freshPull = $conn->query("SELECT * FROM php_repos");
     if (!mysqli_query($conn,$freshPull)){
-        echo ("Error description: " . mysqli_error($conn));
+        die("Error description: " . mysqli_error($conn));
     }else {
       return $freshPull;
     }
@@ -98,8 +98,8 @@
 
 <!-- DATA WILL GO DOWN HERE - conditional formatting, etc -->
   <?php 
-    // $dataSet = pullData();
-    // echo $dataSet;
+    $dataSet = pullData();
+    echo $dataSet;
   ?>
 </body>
 </html>
