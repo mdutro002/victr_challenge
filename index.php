@@ -1,4 +1,6 @@
 <?php 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
   /* Connect to DB */
   $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
