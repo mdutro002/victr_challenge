@@ -44,18 +44,21 @@
       $rpush = $repo[pushed_at];
       $rdesc = $repo[description];
       $rstars = $repo[stargazers_count];
-      array_push($repoRow, $rid, $rname, $rdate, $rpush, $rdesc, $rstars);
-      //Here would be where I would turn each piece of data into a param, and write it to the database. 
+
+      $paramValues = '%s, %s, %s, %s, %s, %d'
+      sprintf($paramValues, $rid, $rname, $rdate, $rpush, $rdesc, $rstars);
       //SQL would look akin to the following:
       //INSERT INTO php_repos (gitID, name, created, pushed, description, stars)
        //VALUES ($1, $2, $3, $4, $5, $6);
-      array_push($cleanData, $repoRow);
     }
 
   /* DATA DISPLAY */
    function pullData(){
-     /* SELECT * FROM php_repos */
+    $freshPull = $conn->query("SELECT * FROM php_repos");
+    echo $freshPull;
    }
+
+   pullData();
 
 ?>
 
@@ -73,9 +76,7 @@
 
 <!-- DATA WILL GO DOWN HERE - conditional formatting, etc -->
   <?php 
-   foreach($cleanData as $cleanRepo){
 
-   }
   ?>
 </body>
 </html>
