@@ -34,22 +34,37 @@
     //This URL filters by language, sorts by stars, and limits 3 results - Todo: modify to accept wildcard params?
 
     $repos = $rawData[items];
-    $cleanData = [];
 
+    //loop through and write pertinent repo fields to MySQL Table php_repos
     foreach($repos as $repo){
-      $repoRow = [];
       $rid = $repo[id];
       $rname = $repo[name];
       $rdate = $repo[created_at];
       $rpush = $repo[pushed_at];
       $rdesc = $repo[description];
       $rstars = $repo[stargazers_count];
-
-      //$paramValues = '%s, %s, %s, %s, %s, %d'
-      //sprintf($paramValues, $rid, $rname, $rdate, $rpush, $rdesc, $rstars);
-      //SQL would look akin to the following:
-      //INSERT INTO php_repos (gitID, name, created, pushed, description, stars)
-       //VALUES ($1, $2, $3, $4, $5, $6);
+      
+      $insertTemplate = ("
+          INSERT INTO php_repos(
+            gitID, 
+            name, 
+            created, 
+            pushed, 
+            description, 
+            stars
+          )VALUES(
+            %s, 
+            %s, 
+            %s, 
+            %s, 
+            %s, 
+            %d);
+      ");
+      
+      //sanatize json output and write to table
+      $insertQuery = sprintf($insertTemplate, $rid, $rname, $rdate, $rpush, $rdesc, $rstars);
+      $conn->query($insertQuery);
+    
     }
 
   /* DATA DISPLAY */
