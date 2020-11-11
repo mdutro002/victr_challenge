@@ -13,7 +13,7 @@
     echo "Failed to connect to MySQL: (" . $conn->connect_errno . ") " . $conn->connect_error;
   }
 
-  /* DATA GET */
+  /* DATA GET & WRITE */
   /* API call here to grab most popular repos */
     function getData($url){
       $ch = curl_init();
@@ -70,7 +70,7 @@
     }
     //END LOOP
 
-  /* DATA DISPLAY */
+  /* PULL FROM DATABASE FOR DISPLAY */
    function pullData(){
     $freshPull = $conn->query("SELECT * FROM php_repos;");
     if (!mysqli_query($conn,$freshPull)){
@@ -91,6 +91,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>PHP Repos</title>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./main.css">
 </head>
 <body>
   <h1>Github Allstars - PHP edition</h1>
