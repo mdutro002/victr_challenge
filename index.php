@@ -43,17 +43,15 @@
       $rawPushDate = date_parse($repo[pushed_at]);
       $rdate = $rawCreateDate[year] . "-" . $rawCreateDate[month] . "-" . $rawCreateDate[day] . ", " . $rawCreateDate[hour] . ":" . $rawCreateDate[minute] ; 
       $rpush = $rawPushDate[year] . "-" . $rawPushDate[month] . "-" . $rawPushDate[day] . ", " . $rawPushDate[hour] . ":" . $rawPushDate[minute] ;
-      $rdesc = " ' " . $repo[description] . " ' ";
+      $rdesc = $repo[description];
       $rstars = $repo[stargazers_count];
-
-      var_dump($rdesc);
       
       $insertTemplate = 
-      ("INSERT INTO php_repos(repo_id,name,created_date,last_push,description,stars)VALUES(%s, %s, %s, %s, %s, %d);");
+      ("INSERT INTO php_repos(repo_id,name,created_date,last_push,description,stars)VALUES('%s', '%s', '%s', '%s', '%s', %d);");
       
       //sanatize json output and write to table
       $insertQuery = sprintf(
-        mysqli_real_escape_string($conn, $insertTemplate),
+        $insertTemplate,
         mysqli_real_escape_string($conn, $rid),
         mysqli_real_escape_string($conn, $rname),
         mysqli_real_escape_string($conn, $rdate),
