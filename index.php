@@ -91,7 +91,9 @@ ini_set('display_errors', 1);
 <!-- DATA WILL GO DOWN HERE - conditional formatting, etc -->
   <?php 
     $results = $conn->query("SELECT * FROM php_repos;");
-    echo $results;
+    while ($row = $results->fetch_assoc()){
+      echo $row['name'];
+    }
   ?>
 </body>
 </html>
