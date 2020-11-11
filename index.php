@@ -35,14 +35,13 @@
     $repos = $rawData[items];
 
     //loop through and write pertinent repo fields to MySQL Table php_repos
-    //BUG: the hour and minute values can be single digits - so 3:06 would appear as 15:6. I would use regex to fix this issue, but for the sake of timeliness will omit for now.
     foreach($repos as $repo){
       $rid = $repo[id];
       $rname = $repo[name];
       $rawCreateDate = date_parse($repo[created_at]);
       $rawPushDate = date_parse($repo[pushed_at]);
-      $rdate = $rawCreateDate[year] . "-" . $rawCreateDate[month] . "-" . $rawCreateDate[day] . ", " . $rawCreateDate[hour] . ":" . $rawCreateDate[minute] ; 
-      $rpush = $rawPushDate[year] . "-" . $rawPushDate[month] . "-" . $rawPushDate[day] . ", " . $rawPushDate[hour] . ":" . $rawPushDate[minute] ;
+      $rdate = $rawCreateDate[year] . "-" . $rawCreateDate[month] . "-" . $rawCreateDate[day]; 
+      $rpush = $rawPushDate[year] . "-" . $rawPushDate[month] . "-" . $rawPushDate[day];
       $rdesc = $repo[description];
       $rstars = $repo[stargazers_count];
       
@@ -89,7 +88,7 @@
   <?php 
     $results = $conn->query("SELECT * FROM php_repos;");
     while ($row = $results->fetch_assoc()){
-      echo $row['name'] . "\n";
+      echo $row['repo_id'] . " " . $row['name'] . " " . $row['created_date'] . " \n \n"   ;
     }
   ?>
 </body>
