@@ -60,11 +60,11 @@
         mysqli_real_escape_string($conn, $rstars)
       );
       
-      // $conn->query($insertQuery);
+     var_dump($conn->query($insertQuery));
 
-      // if (!mysqli_query($conn,$insertQuery)){
-      //   echo ("Error description: " . mysqli_error($conn));
-      // }
+      if (!mysqli_query($conn,$insertQuery)){
+         echo ("Error description: " . mysqli_error($conn));
+      }
     
     }
 
