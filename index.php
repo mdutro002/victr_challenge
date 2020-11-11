@@ -62,8 +62,16 @@
       ");
       
       //sanatize json output and write to table
-      $insertQuery = sprintf($insertTemplate, $rid, $rname, $rdate, $rpush, $rdesc, $rstars);
-      $insertQuery = mysqli_real_escape_string($insertQuery);
+      $insertQuery = sprintf(
+        mysqli_real_escape_string($conn, $insertTemplate),
+        mysqli_real_escape_string($conn, $rid),
+        mysqli_real_escape_string($conn, $rname),
+        mysqli_real_escape_string($conn, $rdate),
+        mysqli_real_escape_string($conn, $rpush),
+        mysqli_real_escape_string($conn, $rdesc),
+        mysqli_real_escape_string($conn, $rstars)
+      );
+      
       $conn->query($insertQuery);
     
     }
