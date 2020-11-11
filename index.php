@@ -1,26 +1,31 @@
 <?php 
 
-  /* Connect to DB? */
+  /* Connect to DB */
+ /*  
   $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+          $server = $url["host"];
+          $username = $url["user"];
+          $password = $url["pass"];
+          $db = substr($url["path"], 1);
 
-  $server = $url["host"];
-  $username = $url["user"];
-  $password = $url["pass"];
-  $db = substr($url["path"], 1);
-
-  $conn = new mysqli($server, $username, $password, $db);
-
-  $testingTesting = $conn->query("SELECT * FROM MySQL.user");
-  echo $testingTesting;
+          $conn = new mysqli($server, $username, $password, $db);
+ */
 
   /* DATA GET */
-    /* API call here to grab most popular repos */
-    /*
-      https://stackoverflow.com/questions/17230246/php-curl-get-request-and-requests-body/40715494#40715494 
-      https://stackoverflow.com/questions/17230246/php-curl-get-request-and-requests-body/17230281#17230281
-      curl -H 'Accept: application/vnd.github.preview.text-match+json' https://api.github.com/search/repositories?q=language:php&sort=stars&per_page=3
-    */
+  /* API call here to grab most popular repos */
+    function getData($url){
+      $ch = curl_init();
+      curl_setopt($ch,CURLOPT_URL,$url);
+      curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+      curl_setopt($ch,CURLOPT_HEADER, true );
+      curl_setopt($ch,CURLOPT_USERAGENT, "mdutro002");
+      $output=curl_exec($ch);
+      curl_close($ch);
+      return $output;
+    }
 
+    echo getData("https://api.github.com/search/repositories?q=language:php&sort=stars&per_page=3");
+    //This URL filters by language, sorts by stars, and limits 3 results - variables can be shifted
     /*   
     this didn't quite work - might save and tweak for later use
       $json_data = json_decode(file_get_contents('https://api.github.com/search/repositories?q=language:php&sort=stars&per_page=3'));
