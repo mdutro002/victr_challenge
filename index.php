@@ -46,8 +46,6 @@
       $rdesc = " ' " . $repo[description] . " ' ";
       $rstars = $repo[stargazers_count];
 
-      var_dump($rdate);
-      var_dump($rpush);
       var_dump($rdesc);
       
       $insertTemplate = 
@@ -64,11 +62,11 @@
         mysqli_real_escape_string($conn, $rstars)
       );
       
-      $conn->query($insertQuery);
+      // $conn->query($insertQuery);
 
-      if (!mysqli_query($conn,$insertQuery)){
-        echo ("Error description: " . mysqli_error($conn));
-      }
+      // if (!mysqli_query($conn,$insertQuery)){
+      //   echo ("Error description: " . mysqli_error($conn));
+      // }
     
     }
 
