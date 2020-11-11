@@ -40,7 +40,7 @@
       $rid = $repo[id];
       $rname = $repo[name];
       $rawCreateDate = date_parse($repo[created_at]);
-      $rawPushDate = $repo[pushed_at];
+      $rawPushDate = date_parse($repo[pushed_at]);
       $rdate = $rawCreateDate[year] . "-" . $rawCreateDate[month] . "-" . $rawCreateDate[day] . ", " . $rawCreateDate[hour] . ":" . $rawCreateDate[minute] ; 
       $rpush = $rawPushDate[year] . "-" . $rawPushDate[month] . "-" . $rawPushDate[day] . ", " . $rawPushDate[hour] . ":" . $rawPushDate[minute] ;
       $rdesc = $repo[description];
@@ -62,11 +62,11 @@
       
       var_dump($insertQuery);
 
-      // $conn->query($insertQuery);
+      $conn->query($insertQuery);
 
-      // if (!mysqli_query($conn,$insertQuery)){
-      //   echo ("Error description: " . mysqli_error($conn));
-      // }
+      if (!mysqli_query($conn,$insertQuery)){
+        echo ("Error description: " . mysqli_error($conn));
+      }
     
     }
 
