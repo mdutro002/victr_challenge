@@ -72,12 +72,6 @@ ini_set('display_errors', 1);
     }
     //END LOOP
 
-  function pullData(){
-    $sql = "SELECT * FROM php_repos";
-    $results = $conn->query($sql);
-    return $results;
-  }
-
 
 ?>
 
@@ -96,7 +90,8 @@ ini_set('display_errors', 1);
 
 <!-- DATA WILL GO DOWN HERE - conditional formatting, etc -->
   <?php 
-    echo pullData();
+    $results = $conn->query("SELECT * FROM php_repos;");
+    echo $results;
   ?>
 </body>
 </html>
