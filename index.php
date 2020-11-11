@@ -61,7 +61,7 @@
         mysqli_real_escape_string($conn, $rstars)
       );
       
-     var_dump($conn->query($insertQuery));
+     $conn->query($insertQuery);
 
       if (!mysqli_query($conn,$insertQuery)){
          echo ("Error description: " . mysqli_error($conn));
@@ -93,7 +93,8 @@
 
 <!-- DATA WILL GO DOWN HERE - conditional formatting, etc -->
   <?php 
-    echo pullData();
+    $dataSet = pullData();
+    echo $dataSet;
   ?>
 </body>
 </html>
