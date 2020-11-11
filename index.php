@@ -45,13 +45,7 @@
       $rstars = $repo[stargazers_count];
       
       $insertTemplate = ("
-          INSERT INTO php_repos(
-            gitID, 
-            name, 
-            created, 
-            pushed, 
-            description, 
-            stars
+          INSERT INTO php_repos(repo_id,name,created_date,last_push,description,stars
           )VALUES(
             %s, 
             %s, 
