@@ -39,11 +39,13 @@
     foreach($repos as $repo){
       $rid = $repo[id];
       $rname = $repo[name];
-
-      $rdate = $repo[created_at]; 
-      $rpush = $repo[pushed_at];
-      var_dump(date_parse($rdate));
-      var_dump(date_parse($rpush));
+      $rawCreateDate = date_parse($repo[created_at]);
+      $rawPushDate = $repo[pushed_at];
+      $rdate = $rawCreateDate[year]; 
+      //$rpush = ;
+      var_dump(date_parse($rawCreateDate));
+      var_dump($rdate);
+     // var_dump(date_parse($rpush));
 
       $rdesc = $repo[description];
       $rstars = $repo[stargazers_count];
