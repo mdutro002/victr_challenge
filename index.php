@@ -44,8 +44,7 @@
       $rdesc = $repo[description];
       $rstars = $repo[stargazers_count];
       
-      $insertTemplate = ("
-          INSERT INTO php_repos(repo_id,name,created_date,last_push,description,stars
+      $insertTemplate = ("INSERT INTO php_repos(repo_id,name,created_date,last_push,description,stars
           )VALUES(
             %s, 
             %s, 
