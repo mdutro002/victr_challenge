@@ -42,9 +42,9 @@
       $rawCreateDate = date_parse($repo[created_at]);
       $rawPushDate = $repo[pushed_at];
       $rdate = $rawCreateDate[year] . "-" . $rawCreateDate[month] . "-" . $rawCreateDate[day] . ", " . $rawCreateDate[hour] . ":" . $rawCreateDate[minute] ; 
-      //$rpush = ;
+      $rpush = $rawPushDate[year] . "-" . $rawPushDate[month] . "-" . $rawPushDate[day] . ", " . $rawPushDate[hour] . ":" . $rawPushDate[minute] ;
       var_dump($rdate);
-     // var_dump(date_parse($rpush));
+      var_dump($rpush);
 
       $rdesc = $repo[description];
       $rstars = $repo[stargazers_count];
