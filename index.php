@@ -43,9 +43,6 @@
       $rawPushDate = $repo[pushed_at];
       $rdate = $rawCreateDate[year] . "-" . $rawCreateDate[month] . "-" . $rawCreateDate[day] . ", " . $rawCreateDate[hour] . ":" . $rawCreateDate[minute] ; 
       $rpush = $rawPushDate[year] . "-" . $rawPushDate[month] . "-" . $rawPushDate[day] . ", " . $rawPushDate[hour] . ":" . $rawPushDate[minute] ;
-      var_dump($rdate);
-      var_dump($rpush);
-
       $rdesc = $repo[description];
       $rstars = $repo[stargazers_count];
       
@@ -63,11 +60,13 @@
         mysqli_real_escape_string($conn, $rstars)
       );
       
-      $conn->query($insertQuery);
+      var_dump($insertQuery);
 
-      if (!mysqli_query($conn,$insertQuery)){
-        echo ("Error description: " . mysqli_error($conn));
-      }
+      // $conn->query($insertQuery);
+
+      // if (!mysqli_query($conn,$insertQuery)){
+      //   echo ("Error description: " . mysqli_error($conn));
+      // }
     
     }
 
