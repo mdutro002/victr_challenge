@@ -34,10 +34,8 @@
 
     $repos = $rawData[items];
 
-    var_dump($repos);
-    die;
-
     //loop through and write pertinent repo fields to MySQL Table php_repos
+    //BUG - Data getting written twice each time - HOW?
     foreach($repos as $repo){
       $rid = $repo[id];
       $rname = $repo[name];
@@ -63,11 +61,6 @@
       );
       
      $conn->query($insertQuery);
-
-      if (!mysqli_query($conn,$insertQuery)){
-         echo ("Error description: " . mysqli_error($conn));
-      }
-    
     }
     //END LOOP
 
