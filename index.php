@@ -30,7 +30,7 @@
       return json_decode($body, true);
     }
 
-    $rawData = getData("https://api.github.com/search/repositories?q=language:php&sort=stars&per_page=3");
+    $rawData = getData("https://api.github.com/search/repositories?q=language:php&sort=stars&per_page=10");
     //This URL filters by language, sorts by stars, and limits 3 results - Todo: modify to accept wildcard params?
 
     $repos = $rawData[items];
@@ -91,6 +91,7 @@
 
 <!-- DATA WILL GO DOWN HERE - conditional formatting, etc -->
   <?php 
+    echo pullData();
   ?>
 </body>
 </html>
