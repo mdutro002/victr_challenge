@@ -45,8 +45,8 @@
       $rdesc = $repo[description];
       $rstars = $repo[stargazers_count];
 
-      $paramValues = '%s, %s, %s, %s, %s, %d'
-      sprintf($paramValues, $rid, $rname, $rdate, $rpush, $rdesc, $rstars);
+      //$paramValues = '%s, %s, %s, %s, %s, %d'
+      //sprintf($paramValues, $rid, $rname, $rdate, $rpush, $rdesc, $rstars);
       //SQL would look akin to the following:
       //INSERT INTO php_repos (gitID, name, created, pushed, description, stars)
        //VALUES ($1, $2, $3, $4, $5, $6);
