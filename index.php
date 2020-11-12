@@ -78,12 +78,37 @@
 <body>
   <h1>Github Allstars - PHP edition</h1>
 
-<!-- DATA WILL GO DOWN HERE - conditional formatting, etc -->
-  <?php 
-    $results = $conn->query("SELECT * FROM php_repos;");
-    while ($row = $results->fetch_assoc()){
-      echo nl2br($row['repo_id'] . " " . $row['name'] . " " . $row['created_date'] . " " . $row['last_push'] . " " . $row['description'] . " " . $row['stars'] . "\n");
-    }
-  ?>
+
+
+  <table id="table_id" class="display">
+    <thead>
+        <tr>
+            <th>Github ID</th>
+            <th>Repo Name</th>
+            <th>Description</th>
+            <th>Created Date</th>
+            <th>Last Push</th>
+            <th>Stars</th>
+        </tr>
+    </thead>
+    <tbody>
+      <?php 
+        $results = $conn->query("SELECT * FROM php_repos;");
+        foreach($result as $row){
+        ?>
+          <tr>
+            <td><?php echo $row[repo_id] ?></td>
+            <td><?php  ?></td>
+            <td><?php  ?></td>
+            <td><?php  ?></td>
+            <td><?php  ?></td>
+            <td><?php  ?></td>
+          </tr>
+       <?php
+        }
+      ?>
+    </tbody>
+</table>
+
 </body>
 </html>
