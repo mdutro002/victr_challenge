@@ -100,8 +100,8 @@
             <td><?php echo $row[repo_id] ?></td>
             <td><?php echo $row[name] ?></td>
             <td><?php echo $row[description] ?></td>
-            <td><?php echo $row[created_at] ?></td>
-            <td><?php echo $row[pushed_at] ?></td>
+            <td><?php echo $row[created_date] ?></td>
+            <td><?php echo $row[last_push] ?></td>
             <td><?php echo $row[stars] ?></td>
           </tr>
        <?php
