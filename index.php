@@ -30,7 +30,6 @@
     }
 
     $rawData = getData("https://api.github.com/search/repositories?q=language:php&sort=stars&per_page=100");
-    //This URL filters by language, sorts by stars, and limits 3 results - Todo: modify to accept wildcard params?
 
     $conn->query("TRUNCATE TABLE php_repos");
 
