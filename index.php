@@ -78,7 +78,9 @@
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
   <script>
       $(document).ready( function () {
-        $('#table_id').DataTable();
+        $('#table_id').DataTable({
+          "order": [[ 5, "desc" ]]
+        });
       } );
   </script>
 </head>
