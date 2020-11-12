@@ -1,6 +1,6 @@
 # PHP Repo Viewer
 
-This project showcases a limited set of results of the most starred PHP based repositories on Github!
+This project showcases a limited set of results of the most starred PHP based repositories on Github! Each time the page is called, the top ten PHP repositories are stored in the Cloud database instance
 Live link here: https://phpallstars.herokuapp.com
 
 ## Technology
