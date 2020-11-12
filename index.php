@@ -94,7 +94,7 @@
     <tbody>
       <?php 
         $results = $conn->query("SELECT * FROM php_repos;");
-        foreach($result as $row){
+        foreach($results as $row){
         ?>
           <tr>
             <td><?php echo $row[repo_id] ?></td>
