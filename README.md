@@ -6,9 +6,9 @@ Live link here: https://phpallstars.herokuapp.com
 ## Technology
 
   ### Languages
-    PHP, MySQL, Github API
+PHP, MySQL
   ### Architecture
-    Heroku, CloudDB add-on
+Heroku, CloudDB add-on
   ### 3rd Party Tools
-    Github API, jQuery
+Github API, jQuery, Datatables Framework
 
