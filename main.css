@@ -1,5 +1,9 @@
 body{
-  background-color: mintcream;
-  color: navy;
+  background-color: whitesmoke;
+  color: grey;
   font-family: sans-serif;
+}
+
+h1{
+  align-self: center;
 }
